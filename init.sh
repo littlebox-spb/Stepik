@@ -5,6 +5,6 @@ sudo ln -sf /home/box/web/etc/hello.py   /etc/gunicorn.d/test
 sudo /etc/init.d/gunicorn restart
 
 
-#sudo gunicorn -b 0.0.0.0:8080 Hello:wsgi_first
+#sudo gunicorn -b 0.0.0.0:8080 hello:wsgi_first
 
 #sudo /etc/init.d/mysql start
