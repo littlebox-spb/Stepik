@@ -1,8 +1,5 @@
-from urllib.parse import parse_qs
-
-
 def wsgi_first(environ, start_response):
-    body = parse_qs(environ.get('QUERY_STRING')
+    body = [bytes(i + "\n", "ascii") for i in environ["QUERY_STRING"].split("&")]
     status = "200 OK"
     headers = [("Content-Type", "text/plain")]
     start_response(status, headers)
