@@ -9,7 +9,7 @@ def wsgi_first(environ, start_response):
     return body
 
 
-s = "get https://github.com/?a=1&a=2&b=3"
+s = "https://stepik.org/lesson/14826/step/11?unit=4175"
 
 print(urlparse(s))
 print(parse_qs(s[2:]))
