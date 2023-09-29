@@ -1,9 +1,69 @@
-# put your python code here
-from datetime import date
-import calendar
-d = date.fromisoformat(input())
-cal= calendar.Calendar()
-print(max(cal.itermonthdays(d.year, d.month)))
+n = int(input())
+f = True
+sp = []
+for i in range(n):
+    sp.append(list(map(int, input().split())))
+while f:
+    for i in range(len(sp)):
+        for j in range(i, len(sp)):
+            if sp[i][0] > sp[j][0] or (sp[i][0] == sp[j][0] and sp[i][1] > sp[j][1]):
+                sp[i], sp[j] = sp[j], sp[i]
+    f = False
+    for i in range(len(sp) - 1):
+        if (sp[i][0] <= sp[i+1][0] <= sp[i][1]) and (sp[i][0] <= sp[i+1][1] <= sp[i][1]):
+            f = True
+            sp.pop(i+1)
+            break
+        if (sp[i+1][0] == sp[i][1]+1) or ((sp[i][0] <= sp[i+1][0] <= sp[i][1]) and sp[i][1]<sp[i+1][1]):
+            f = True
+            sp.append([sp[i][0], sp[i+1][1]])
+            sp.pop(i+1)
+            sp.pop(i)
+            break
+print(sp)
+
+
+# from datetime import date
+
+
+# def is_vis(d):
+#     return (d % 4 == 0 and d % 100 != 0) or (d % 400 == 0 and d % 100 == 0)
+
+
+# sp = []
+# dp = date.fromisoformat(input())
+# sd = list([date.fromisoformat(input()) for d in range(int(input()))])
+# for i in sd:
+#     if i.day == dp.day and i.month == dp.month:
+#         sp.append(i)
+#     if dp.day == 28 and dp.month == 2 and i.day == 29 and i.month == 2:
+#         if is_vis(i.year) and not is_vis(dp.year):
+#             sp.append(i)
+
+# if len(sp) == 0:
+#     print("Поздравлять некого")
+# else:
+#     for i in sp:
+#         print(i)
+
+# import calendar
+
+# cal = calendar.Calendar()
+# wyear = int(input())
+# wc = 0
+# for i in cal.yeardayscalendar(wyear):
+#     for j in i:
+#         for k in j:
+#             if k[0] != 0:
+#                 wc += 1
+# print(wc)
+
+
+# from datetime import date
+# import calendar
+# d = date.fromisoformat(input())
+# cal= calendar.Calendar()
+# print(max(cal.itermonthdays(d.year, d.month)))
 
 # import datetime
 # sd=list(input().split())
@@ -15,7 +75,7 @@ print(max(cal.itermonthdays(d.year, d.month)))
 #     kend=datetime.datetime.strptime(sd[1],'%Y-%m-%d')
 #     if kstart>=start and kstart<=end or kend>=start and kend<=end or kstart<start and kend>end:
 #         print(kstart.date(),kend.date())
-        
+
 # #Решение автора
 # from datetime import date
 
