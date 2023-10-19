@@ -1,3 +1,128 @@
+class Product:
+    def __init__(self, name, price) -> None:
+        self.name = name
+        self.price = price
+
+
+class User:
+    def __init__(self, login, balance=0) -> None:
+        self.login = login
+        self.balance = balance
+
+    def __str__(self) -> str:
+        return f"Пользователь {self.login}, баланс - {self.balance}"
+
+    @property
+    def balance(self):
+        return self.__balance
+
+    @balance.setter
+    def balance(self, balance):
+        self.__balance = balance
+
+    def deposit(self, deposit):
+        self.balance += deposit
+
+    def payment(self, pay):
+        if pay <= self.balance:
+            self.balance -= pay
+            return True
+        else:
+            print("Не хватает средств на балансе. Пополните счет")
+            return False
+
+
+class Cart:
+    def __init__(self, user) -> None:
+        self.goods = {}
+        self.__total = 0
+        self.user = user
+
+    @property
+    def total(self):
+        return self.__total
+
+    def add(self, product, goods=1):
+        self.goods[product] = self.goods.get(product, 0) + goods
+        self.__total += product.price * goods
+
+    def remove(self, product, goods=1):
+        if self.goods[product] > goods:
+            self.goods[product] -= goods
+            self.__total -= product.price * goods
+        else:
+            self.__total -= product.price * self.goods[product]
+            del self.goods[product]
+
+    def order(self):
+        if self.user.payment(self.total):
+            print("Заказ оплачен")
+        else:
+            print("Проблема с оплатой")
+
+    def print_check(self):
+        print("---Your check---")
+        ssGood = sorted(self.goods, key=lambda x: x.name)
+        for good in ssGood:
+            print(f"{good.name} {good.price} {self.goods[good]} {good.price*self.goods[good]}")
+        print(f"---Total: {self.total}---")
+
+
+billy = User("billy@rambler.ru")
+
+lemon = Product("lemon", 20)
+carrot = Product("carrot", 30)
+
+cart_billy = Cart(billy)
+print(cart_billy.user)  # Пользователь billy@rambler.ru, баланс - 0
+cart_billy.add(lemon, 2)
+cart_billy.add(carrot)
+cart_billy.print_check()
+""" Печатает текст ниже
+---Your check---
+carrot 30 1 30
+lemon 20 2 40
+---Total: 70---"""
+cart_billy.add(lemon, 3)
+cart_billy.print_check()
+""" Печатает текст ниже
+---Your check---
+carrot 30 1 30
+lemon 20 5 100
+---Total: 130---"""
+cart_billy.remove(lemon, 6)
+cart_billy.print_check()
+""" Печатает текст ниже
+---Your check---
+carrot 30 1 30
+---Total: 30---"""
+print(cart_billy.total)  # 30
+cart_billy.add(lemon, 5)
+cart_billy.print_check()
+""" Печатает текст ниже
+---Your check---
+carrot 30 1 30
+lemon 20 5 100
+---Total: 130---"""
+cart_billy.order()
+""" Печатает текст ниже
+Не хватает средств на балансе. Пополните счет
+Проблема с оплатой"""
+cart_billy.user.deposit(150)
+cart_billy.order()  # Заказ оплачен
+print(cart_billy.user.balance)  # 20
+
+
+# billy = User("billy@rambler.ru")
+# print(billy)  # Пользователь billy@rambler.ru, баланс - 0
+# billy.deposit(100)
+# billy.deposit(300)
+# print(billy)  # Пользователь billy@rambler.ru, баланс - 400
+# billy.payment(500)  # Не хватает средств на балансе. Пополните счет
+# billy.payment(150)
+# print(billy)  # Пользователь billy@rambler.ru, баланс - 250
+
+
 # class File:
 
 #     def __init__(self,name) -> None:
