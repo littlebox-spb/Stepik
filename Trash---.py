@@ -1,4 +1,4 @@
-if type(5) == "class 'int'":
+if type(5) == "int":
     print("yes")
 else:
     print("no")
