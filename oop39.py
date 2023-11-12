@@ -1,16 +1,36 @@
-class FileReader:
-    def __init__(self, filename):
-        self.file = open(filename)
+class SequenceIterable:
+    def __init__(self, inList):
+        self.iterList = inList
+        self.start = -1
 
     def __iter__(self):
-        self.file.seek(0)
         return self
 
     def __next__(self):
-        return next(self.file).rstrip('\n')
+        self.start += 1
+        if self.start == len(self.iterList):
+            raise StopIteration
+        return self.iterList[self.start]
 
-for line in FileReader('loremm.txt'):
-    print(line)
+
+container = SequenceIterable([1, 5, 4, 6, 43, True, "hello"])
+for i in container:
+    print(i)
+
+
+# class FileReader:
+#     def __init__(self, filename):
+#         self.file = open(filename)
+
+#     def __iter__(self):
+#         self.file.seek(0)
+#         return self
+
+#     def __next__(self):
+#         return next(self.file).rstrip('\n')
+
+# for line in FileReader('loremm.txt'):
+#     print(line)
 
 # class Card:
 #     def __init__(self, rank, suit):
