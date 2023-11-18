@@ -1,17 +1,39 @@
-start = 12
-end = 21
+class A:
+    val = 1
+
+    def foo(self):
+        A.val += 2
+
+    def bar(self):
+        self.val += 1
 
 
-def pr(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
+a = A()
+b = A()
+
+a.bar()
+a.foo()
+
+c = A()
+
+print(a.val)
+print(b.val)
+print(c.val)
+
+# start = 12
+# end = 21
 
 
-for j in range(start, end + 1):
-    if pr(j):
-        print(f" {j}")
+# def pr(n):
+#     for i in range(2, n):
+#         if n % i == 0:
+#             return False
+#     return True
+
+
+# for j in range(start, end + 1):
+#     if pr(j):
+#         print(f" {j}")
 
 
 # str = "hello_world!"
