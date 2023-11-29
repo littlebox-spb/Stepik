@@ -1,9 +1,30 @@
-s = "H9el546l=o* W7o91r5++l%98d"
-m = ""
-for i in s:
-    if i.isalpha() or i == " ":
-        m += i
-print(m)
+import colorsys
+
+print(colorsys.rgb_to_hsv(0.3, 0.4, 0.2))
+# (0.25, 0.5, 0.4)
+
+# for i in input().replace(" ", "").replace("'", "").split(","):
+#     if "+" in i:
+#         print(f"({i})")
+#     else:
+#         print(i)
+
+
+# s = input().replace(" ", "").replace("'", "").split(",")
+# print(s)
+# st = 0
+# for i in range(len(s)):
+#     if s[i] == ",":
+#         print(s[st:i])
+#         st = i + 1
+# print(s[st : len(s)])
+
+# s = "H9el546l=o* W7o91r5++l%98d"
+# m = ""
+# for i in s:
+#     if i.isalpha() or i == " ":
+#         m += i
+# print(m)
 
 
 # def rev(s):
