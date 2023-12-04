@@ -1,6 +1,26 @@
-import colorsys
+class Person:
+    def tell_about_yourself(self):
+        print("Я Человек")
 
-print(colorsys.rgb_to_hsv(0.3, 0.4, 0.2))
+
+class Doctor(Person):
+    def tell_about_yourself(self):
+        super(Surgeon, self).tell_about_yourself()
+        print("Я Доктор")
+
+
+class Surgeon(Doctor):
+    def tell_about_yourself(self):
+        print("Я Хирург")
+
+
+d = Doctor()
+d.tell_about_yourself()
+
+# import colorsys
+
+# print(colorsys.rgb_to_hsv(0.3, 0.4, 0.2))
+
 # (0.25, 0.5, 0.4)
 
 # for i in input().replace(" ", "").replace("'", "").split(","):
