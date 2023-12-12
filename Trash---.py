@@ -1,6 +1,72 @@
+class Logger:
+    log_level = ""
+
+    def __new__(cls, *args, **kwargs):
+        if not Logger.log_level:
+            log = super(Logger, cls).__new__(cls)
+            Logger.log_level = "INFO"
+        return log
+
+    @classmethod
+    def set_level(cls, log_level):
+        if not cls.log_level:
+            raise (ValueError("The instance has not created"))
+        else:
+            cls.log_level = log_level
+
+    @staticmethod
+    def get_logger():
+        if not Logger.log_level:
+            log = Logger.__new__(Logger)
+        return Logger
+
+
+# logger_1 = Logger.get_logger()
+# print(logger_1.log_level)  # Выведет "INFO"
+# Logger.set_level("DEBUG")
+# print(logger_1.log_level)  # Выведет "DEBUG"
+
+# logger_2 = Logger.get_logger()
+# print(logger_2.log_level)  # Выведет "DEBUG"
+# print(logger_2 is logger_1)
+# ------------------------------------------------
+logger_1 = Logger()
+print(logger_1.log_level)  # Выведет "INFO"
+
+logger_2 = Logger.get_logger()
+logger_2.set_level("DEBUG")
+
+print(logger_1.log_level)  # Выведет "DEBUG"
+print(logger_2.log_level)  # Выведет "DEBUG"
+print(logger_2 is logger_1)
+
+
+# class Point:
+#     def __new__(cls, *args, **kwargs):
+#         print(f"Создание экземпляра {cls.__name__}")
+#         instance = super().__new__(cls)
+#         return instance
+
+#     def __init__(self):
+#         print(f"Вызов __init__ {self.__class__.__name__}")
+
+
+# class Person:
+#     def __new__(cls, *args, **kwargs):
+#         print(f"Создание экземпляра {cls.__name__}")
+#         instance = Point()
+#         return instance
+
+#     def __init__(self):
+#         print(f"Инициализация экземпляра {self.__class__.__name__}")
+
+
+# p = Person()
+
 # import colorsys
 
 # print(colorsys.rgb_to_hsv(0.3, 0.4, 0.2))
+
 
 # (0.25, 0.5, 0.4)
 
