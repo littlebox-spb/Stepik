@@ -1,24 +1,36 @@
-class Logger:
-    log_level = ""
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.maker = model
 
-    def __new__(cls, *args, **kwargs):
-        if not Logger.log_level:
-            log = super(Logger, cls).__new__(cls)
-            Logger.log_level = "INFO"
-        return log
+    def display_info(self):
+        return f"{self.make} {self.model}"
 
-    @classmethod
-    def set_level(cls, log_level):
-        if not cls.log_level:
-            raise (ValueError("The instance has not created"))
-        else:
-            cls.log_level = log_level
 
-    @staticmethod
-    def get_logger():
-        if not Logger.log_level:
-            log = Logger.__new__(Logger)
-        return Logger
+car = Car("Toyota", "Camry")
+print(car.display_info())
+
+# class Logger:
+#     log_level = ""
+
+#     def __new__(cls, *args, **kwargs):
+#         if not Logger.log_level:
+#             log = super(Logger, cls).__new__(cls)
+#             Logger.log_level = "INFO"
+#         return log
+
+#     @classmethod
+#     def set_level(cls, log_level):
+#         if not cls.log_level:
+#             raise (ValueError("The instance has not created"))
+#         else:
+#             cls.log_level = log_level
+
+#     @staticmethod
+#     def get_logger():
+#         if not Logger.log_level:
+#             log = Logger.__new__(Logger)
+#         return Logger
 
 
 # logger_1 = Logger.get_logger()
