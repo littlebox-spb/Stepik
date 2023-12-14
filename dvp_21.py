@@ -1,3 +1,4 @@
+from calendar import monthrange
 from datetime import date, datetime
 
 data = []
@@ -12,8 +13,8 @@ data.append([start, end])
 start, end = map(lambda x: datetime.strptime(x, "%Y-%m-%d"), interval2.split())
 data.append([start, end])
 
-
-output = {}
-
-
-print(data[0], data[1], sep="\n")
+for d in range(len(data)):
+    print(data[d])
+    if data[d][0].month != data[d][1].month:
+        print("нужно бить интервал")
+        print("последний день", monthrange(data[d][0].year, data[d][0].month)[1])
