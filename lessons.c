@@ -2,12 +2,37 @@
 
 int main(void)
 {
-    unsigned char h = 12, m = 3, s = 9;
+    int a;
+    short b;
+    float c;
+    double d;
 
-    printf("%#04x:%#04x:%#04x", h, m, s);
+    scanf("%i%hd%f%lf", &a, &b, &c, &d);
+    printf("%d %d %.2f %.2f", a, b, c, d);
 
     return 0;
 }
+
+// #include <stdio.h>
+
+// int main()
+// {
+//     int a = 0, b = 0, c = 0;
+//     int res_scan = scanf("%d, %d", &a, &b);
+//     printf("%d %d", a, b);
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(void)
+// {
+//     unsigned char h = 12, m = 3, s = 9;
+
+//     printf("%#04x:%#04x:%#04x", h, m, s);
+
+//     return 0;
+// }
 
 // #include <stdio.h>
 
