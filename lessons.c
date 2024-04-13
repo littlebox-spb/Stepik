@@ -2,16 +2,28 @@
 
 int main(void)
 {
-    int a;
-    short b;
-    float c;
-    double d;
-
-    scanf("%i%hd%f%lf", &a, &b, &c, &d);
-    printf("%d %d %.2f %.2f", a, b, c, d);
-
+    long long var_ll = 0;
+    long double var_ld = 0.;
+    short sh = 0;
+    scanf("%lld %f %hd", &var_ll, &var_ld, &sh);
+    printf("%lld %hd", var_ll, sh);
     return 0;
 }
+
+// #include <stdio.h>
+
+// int main(void)
+// {
+//     int a;
+//     short b;
+//     float c;
+//     double d;
+
+//     scanf("%i%hd%f%lf", &a, &b, &c, &d);
+//     printf("%d %d %.2f %.2f", a, b, c, d);
+
+//     return 0;
+// }
 
 // #include <stdio.h>
 
