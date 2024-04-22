@@ -1,16 +1,22 @@
+#include <stdio.h>
+
 int main(void)
 {
+    int rect_width = 640, rect_height = 480;
+    int w = 1, h = 1, res = 0;
+    //    scanf("%d; %d", &w, &h);
+    w = 64;
+    h = 42;
+    if ((rect_width % w))
+    {
+        res += rect_height / h + 1;
+    }
+    if ((rect_height % h))
+    {
+        res += rect_width / w;
+    }
 
-    int _VAR;
-    int a;
-    //    int it's;
-    int a2;
-    int b_2;
-    //    int 123
-    int _2a;
-    int qWertY;
-    int Str[1];
-    int __name__;
-    //    int 2a;
+    printf("%d", res);
+
     return 0;
 }
