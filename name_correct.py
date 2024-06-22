@@ -1,7 +1,7 @@
 import os
 
-mask = '[pirat.biz] '
+mask = input("Введите маску - ")
 
-for file in os.listdir('.'):
+for file in os.listdir("."):
     if file.startswith(mask):
-        os.rename(file, file[len(mask):])
+        os.rename(file, file[len(mask) :])
