@@ -2,19 +2,13 @@
 
 using namespace std;
 
-int main()
-{
-    int x = 20;
-    int y = 50;
-    bool z = (y == x || y > x);
-    float w = 3.14;
-    if ((x & y) == 16 && z | w)
-    {
-        cout << "YES";
-    }
-    else
-    {
-        cout << "NO";
-    }
+int main() {
+	int x = 1;
+	int i = 10;
+	while (i > 0) {
+		x *= i;
+		i--;
+	}
+	cout << x;
     return 0;
 };
