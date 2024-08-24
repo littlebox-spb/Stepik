@@ -2,13 +2,17 @@
 
 using namespace std;
 
-int main() {
-	int x = 1;
+int main()
+{
+	int j = 1;
 	int i = 10;
-	while (i > 0) {
-		x *= i;
+	int res = 1;
+	while (i - j > 0)
+	{
+		j++;
 		i--;
+		res *= (i + j);
 	}
-	cout << x;
-    return 0;
-};
+	cout << res;
+	return 0;
+}
