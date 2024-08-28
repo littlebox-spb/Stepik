@@ -2,22 +2,16 @@
 
 using namespace std;
 
-// Объявление и определение функции
-void increment(int &num)
+int f(int a, int b, int c)
 {
-	num++;
+	return (a * 3 + b * 2 + c) / (a + b + c);
 }
 
 int main()
 {
-	int num = 5;
-
-	cout << "Before increment: " << num << endl;
-
-	// Calling the increment function and passing num by reference
-	increment(num);
-
-	cout << "After increment: " << num << endl;
-
+	int a = 5;
+	int b = 4;
+	int c = 3;
+	cout << f(a, b, c);
 	return 0;
 }
