@@ -2,16 +2,17 @@
 
 using namespace std;
 
-int f(int a, int b, int c)
+int f(int n)
 {
-	return (a * 3 + b * 2 + c) / (a + b + c);
+	if (n == 1 || n == 2)
+	{
+		return 1;
+	}
+	return f(n - 1) + f(n - 2);
 }
 
 int main()
 {
-	int a = 5;
-	int b = 4;
-	int c = 3;
-	cout << f(a, b, c);
+	cout << f(10);
 	return 0;
 }
