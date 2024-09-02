@@ -2,17 +2,19 @@
 
 using namespace std;
 
-int f(int n)
-{
-	if (n == 1 || n == 2)
-	{
-		return 1;
-	}
-	return f(n - 1) + f(n - 2);
-}
-
 int main()
 {
-	cout << f(10);
+	int x;
+	cin >> x;
+	if (x > 0)
+	{
+		int y = 10;
+	}
+	else
+	{
+		cout << "YES";
+		return 0;
+	}
+	cout << y;
 	return 0;
-}
+};
