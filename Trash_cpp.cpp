@@ -4,17 +4,7 @@ using namespace std;
 
 int main()
 {
-	int x;
-	cin >> x;
-	if (x > 0)
-	{
-		int y = 10;
-	}
-	else
-	{
-		cout << "YES";
-		return 0;
-	}
-	cout << y;
+	char s[] = "Hello";
+	cout << sizeof(s);
 	return 0;
-};
+}
