@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -7,10 +6,17 @@ int main()
 {
 	// put your code here
 	int N, K;
-	string str;
-	cin >> N >> str >> K;
+	cin >> N;
 	int St[N];
-	//	getline(cin, str);
-	cout << str;
+	for (int i = 0; i < N; i++)
+		cin >> St[i];
+	cin >> K;
+	for (int i = 0; i < N; i++)
+	{
+		if (K % St[i] == 0)
+			cout << i + 1;
+		if (i < N - 1)
+			cout << ' ';
+	}
 	return 0;
 }
