@@ -1,10 +1,8 @@
-import numpy as np
-from pandas import *
-import urllib
-import urllib3
+# put your python code here
+def get_path(n):
+    if n in [0, 1]:
+        return 1
+    return get_path(n - 1) + get_path(n - 2)
 
 
-x = np.linspace(0, 5, 10)
-y = x**2
-print("x:", x)
-print("y:", y)
+print(get_path(7))
