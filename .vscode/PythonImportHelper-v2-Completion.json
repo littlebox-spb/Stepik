@@ -133,6 +133,15 @@
         "documentation": {}
     },
     {
+        "label": "poplib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "poplib",
+        "description": "poplib",
+        "detail": "poplib",
+        "documentation": {}
+    },
+    {
         "label": "Enum",
         "importPath": "enum",
         "description": "enum",
@@ -635,6 +644,51 @@
         "description": "dvp_23",
         "peekOfCode": "sl = int(input())\nfor d in dataPre:\n    if d[1] == sl:\n        dataResult.append(d[0].tm_min * 60 + d[0].tm_sec)\nif dataResult:\n    dataResult.sort()\n    if len(dataResult) % 2 == 0:\n        td = (\n            int(\n                (",
         "detail": "dvp_23",
+        "documentation": {}
+    },
+    {
+        "label": "username",
+        "kind": 5,
+        "importPath": "email",
+        "description": "email",
+        "peekOfCode": "username = \"your_email@example.com\"\npassword = \"your_password\"\n# Подключение к почтовому серверу Gmail\npop3_server = \"pop.gmail.com\"\nmailbox = poplib.POP3_SSL(pop3_server, 995)\n# Вход в почтовый ящик\nmailbox.user(\"littlebox.spb\")\nmailbox.pass_(\n    \"SasMas69\"\n)  # Используем pass_ для предотвращения конфликта с ключевым словом pass в Python",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "kind": 5,
+        "importPath": "email",
+        "description": "email",
+        "peekOfCode": "password = \"your_password\"\n# Подключение к почтовому серверу Gmail\npop3_server = \"pop.gmail.com\"\nmailbox = poplib.POP3_SSL(pop3_server, 995)\n# Вход в почтовый ящик\nmailbox.user(\"littlebox.spb\")\nmailbox.pass_(\n    \"SasMas69\"\n)  # Используем pass_ для предотвращения конфликта с ключевым словом pass в Python\n# Получение информации о почтовом ящике",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "pop3_server",
+        "kind": 5,
+        "importPath": "email",
+        "description": "email",
+        "peekOfCode": "pop3_server = \"pop.gmail.com\"\nmailbox = poplib.POP3_SSL(pop3_server, 995)\n# Вход в почтовый ящик\nmailbox.user(\"littlebox.spb\")\nmailbox.pass_(\n    \"SasMas69\"\n)  # Используем pass_ для предотвращения конфликта с ключевым словом pass в Python\n# Получение информации о почтовом ящике\nnum_messages = len(mailbox.list()[1])\nprint(f\"Количество писем: {num_messages}\")",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "mailbox",
+        "kind": 5,
+        "importPath": "email",
+        "description": "email",
+        "peekOfCode": "mailbox = poplib.POP3_SSL(pop3_server, 995)\n# Вход в почтовый ящик\nmailbox.user(\"littlebox.spb\")\nmailbox.pass_(\n    \"SasMas69\"\n)  # Используем pass_ для предотвращения конфликта с ключевым словом pass в Python\n# Получение информации о почтовом ящике\nnum_messages = len(mailbox.list()[1])\nprint(f\"Количество писем: {num_messages}\")\n# Пример: Чтение последнего письма",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "num_messages",
+        "kind": 5,
+        "importPath": "email",
+        "description": "email",
+        "peekOfCode": "num_messages = len(mailbox.list()[1])\nprint(f\"Количество писем: {num_messages}\")\n# Пример: Чтение последнего письма\nif num_messages > 0:\n    response, lines, octets = mailbox.retr(num_messages)\n    message = \"\\n\".join(line.decode(\"utf-8\") for line in lines)\n    print(\"Содержимое последнего письма:\")\n    print(message)\n# Закрытие соединения\nmailbox.quit()",
+        "detail": "email",
         "documentation": {}
     },
     {
